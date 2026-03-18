@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+// Correct import for ApolloProvider in Apollo Client v5+
+import { ApolloProvider } from '@apollo/client/react';
+import client from './apolloClient';
+import TodoList from './todolist';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <h1>My Todo App</h1>
+        <TodoList />
+      </div>
+    </ApolloProvider>
   );
 }
 
