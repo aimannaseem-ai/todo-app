@@ -6,11 +6,9 @@ const apiEndpoint = awsExports.aws_cloud_logic_custom[0].endpoint;
 
 const client = new ApolloClient({
   link: createHttpLink({
-    uri: apiEndpoint, // DO NOT add /graphql here
+    uri: `${apiEndpoint}/graphql`, // Amplify GraphQL endpoint
   }),
   cache: new InMemoryCache(),
 });
-
-console.log("API Endpoint:", apiEndpoint);
-
+console.log("API Endpoint:", awsExports.aws_cloud_logic_custom[0].endpoint);
 export default client;
